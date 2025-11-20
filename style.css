@@ -1,7 +1,6 @@
 /* 변수 설정 */
 * {
     -webkit-tap-highlight-color: transparent;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-user-drag: none;
     user-select: none;
     touch-action: manipulation;
@@ -181,5 +180,6 @@ body {
 .list-item:hover .item-action {
     opacity: 1;
 }
+
 
 
