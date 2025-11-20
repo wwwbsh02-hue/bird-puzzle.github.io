@@ -1,77 +1,163 @@
-/* 기본 스타일 */
+/* 변수 설정 */
+:root {
+    --bg-color: #ffffff;
+    --text-title: #1f1f1f;
+    --text-body: #444746;
+    --text-sub: #5f6368;
+    --border-color: #e0e0e0;
+    --pill-bg: #f0f4f9;
+    --pill-text: #1f1f1f;
+    --hover-bg: #f8f9fa;
+    --google-blue: #1a73e8;
+    --badge-bg: #e8f0fe;
+    --badge-text: #1967d2;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', 'Noto Sans KR', sans-serif;
     margin: 0;
-}
-
-header {
-    background-color: #e5e5e5;
-    padding: 15px;
-    text-align: center;
-}
-
-h3 {
+    background-color: var(--bg-color);
+    color: var(--text-title);
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 0px
 }
 
-h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 25px
+.container {
+    width: 100%;
+    max-width: 900px;
+    padding: 40px 20px;
 }
 
-/* 네비게이션 및 드롭다운 스타일 */
-nav {
+.main-header {
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+.main-header h1 {
+    font-size: 40px;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: -0.5px;
 }
 
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    height: 35px;
-    width: 440px;
-    font-size: 16px;
-    border: none;
+.tab-menu {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.tab-pill {
+    border: 1px solid var(--border-color);
+    background-color: #fff;
+    color: var(--text-sub);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fffefe;
-    min-width: 440px;
-    box-shadow: 0px 1px 10px 1px rgba(0,0,0,0.2);
-    z-index: 1;
+.tab-pill.active {
+    background-color: var(--pill-bg);
+    color: var(--text-title);
+    border-color: transparent;
+    font-weight: 600;
 }
 
+.tab-pill:hover {
+    background-color: var(--hover-bg);
+    color: var(--text-title);
+}
 
-.dropdown-content a {
+.list-group {
+    border-top: 1px solid var(--border-color);
+    min-height: 200px; /* 내용이 없을 때도 모양 유지 */
+}
+
+/* 새로 추가된 숨김 클래스 */
+.hidden {
+    display: none !important;
+}
+
+.list-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-color);
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.list-item:hover {
+    background-color: #fafafa;
+}
+
+.item-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    color: #000000;
-    text-decoration: none;
+}
+
+.icon-shape {
+    font-size: 24px;
+    color: var(--google-blue);
+}
+
+/* 아이콘 색상 변경용 (필요시 사용) */
+.icon-shape.blue { color: #1a73e8; }
+.icon-shape.purple { color: #a142f4; }
+
+.item-content {
+    flex-grow: 1;
+}
+
+.item-header {
     display: flex;
-    height: 30px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
 }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
+.item-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-title);
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
+.badge-new {
+    font-size: 11px;
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+.item-desc {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-sub);
+    line-height: 1.5;
+    max-width: 600px;
+}
+
+.item-action {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.list-item:hover .item-action {
+    opacity: 1;
 }
