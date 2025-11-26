@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>승환의 홈페이지</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- 1. 메인 헤더 -->
+        <header class="main-header">
+            <h1><b>백승환의 홈페이지</b></h1>
+        </header>
+
+        <!-- 2. 탭 메뉴 (버튼에 ID 추가) -->
+        <nav class="tab-menu">
+            <!-- onclick 이벤트를 사용하여 클릭 시 함수 실행 -->
+            <button class="tab-pill active" id="btn-game" onclick="openTab('game')">게임 웹사이트</button>
+            <button class="tab-pill" id="btn-multi" onclick="openTab('multi')">다기능 웹사이트</button>
+        </nav>
+
+        <!-- 3. 리스트 콘텐츠 영역 -->
+        <main class="list-group">
+            
+            <!-- [A] 게임 콘텐츠 그룹 -->
+            <div id="content-game">
+                <a href="https://wwwbsh02-hue.github.io/bird-puzzle" class="list-item" target="_blank">
+                    <div class="item-icon">
+                        <div class="icon-shape">🐤</div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h2>버드 소트 퍼즐</h2>
+                            <span class="badge-new">인기</span>
+                            
+                        </div>
+                        <p class="item-desc">새들을 색깔별로 분류하는 재미있는 퍼즐 게임입니다.</p>
+                    </div>
+                    <div class="item-action">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="#5f6368"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </div>
+                </a>
+                <a>
+                    <div class="list-item disabled">
+                        <div class="item-icon">
+                            <div class="icon-shape blue">❓</div>
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h2>준비 중인 게임들</h2>
+                            </div>
+                            <p class="item-desc">다음에 추가될 새로운 콘텐츠를 기대해주세요.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- [B] 다기능 콘텐츠 그룹 (처음에는 숨김 상태) -->
+            <div id="content-multi" class="hidden">
+                <a href="https://wwwbsh02-hue.github.io/webmake" class="list-item" target="_blank">
+                    <div class="item-icon">
+                        <div class="icon-shape">💾</div>
+                    </div>
+                    <div class="item-content">
+                        <div class="item-header">
+                            <h2>웹 메이커</h2>
+                            <span class="badge-new">베타</span>
+                            
+                        </div>
+                        <p class="item-desc">웹을 쉽게 만들수 있도록 제작된 무료 웹사이트 입니다!</p>
+                    </div>
+                    <div class="item-action">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="#5f6368"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </div>
+                </a>
+                <!-- 예시 아이템 (링크 href를 수정해서 사용하세요) -->
+                <a>
+                    <div class="list-item disabled">
+                        <div class="item-icon">
+                            <div class="icon-shape blue">❓</div>
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h2>준비 중인 도구</h2>
+                            </div>
+                            <p class="item-desc">다음에 추가될 새로운 콘텐츠를 기대해주세요.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- 탭 전환 기능을 위한 자바스크립트 -->
+    <script>
+        function openTab(tabName) {
+            // 1. 모든 탭 버튼에서 'active' 클래스 제거
+            document.getElementById('btn-game').classList.remove('active');
+            document.getElementById('btn-multi').classList.remove('active');
+
+            // 2. 모든 콘텐츠 영역을 숨김 (.hidden 클래스 추가)
+            document.getElementById('content-game').classList.add('hidden');
+            document.getElementById('content-multi').classList.add('hidden');
+
+            // 3. 선택된 버튼에 'active' 추가하고, 해당 콘텐츠 보여주기
+            document.getElementById('btn-' + tabName).classList.add('active');
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
